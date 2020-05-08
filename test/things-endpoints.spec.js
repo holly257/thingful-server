@@ -195,11 +195,10 @@ describe('Things Endpoints', function() {
           maliciousThing,
         )
       })
-      //failing
       it('removes XSS attack content', () => {
         return supertest(app)
           .get(`/api/things/${maliciousThing.id}`)
-          .set('Authorization', helpers.makeAuthHeader(testUsers[0]))
+          .set('Authorization', helpers.makeAuthHeader(testUsers[1]))
           .expect(200)
           .expect(res => {
             expect(res.body.title).to.eql(expectedThing.title)

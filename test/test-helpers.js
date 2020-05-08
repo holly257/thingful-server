@@ -247,11 +247,11 @@ function seedThingsTables(db, users, things, reviews=[]) {
 function seedMaliciousThing(db, user, thing) {
   return db
     .into('thingful_users')
-    .insert([user])
+    .insert(user)
     .then(() =>
       db
         .into('thingful_things')
-        .insert([thing])
+        .insert(thing)
     )
 }
 
