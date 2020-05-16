@@ -33,8 +33,8 @@ describe('Reviews Endpoints', function() {
       )
     )
 
-    it(`responds 041 'Unauthorized request' when invalid password`, () => {
-      const userInvalidPass = { user_name: testUsers[0].user_name, password: 'wrong'}
+    it(`responds 401 'Unauthorized request' when invalid password`, () => {
+      const userInvalidPass = { user_name: 'dunder', password: 'wrong'}
       return supertest(app)
         .post('/api/reviews')
         .set('Authorization', helpers.makeAuthHeader(userInvalidPass))
